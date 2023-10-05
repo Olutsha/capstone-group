@@ -13,3 +13,4 @@ var goToThirdPageButton = document.getElementById('goToThirdPageButton');
 if (goToThirdPageButton) {
     goToThirdPageButton.addEventListener('click', goToThirdPage);
 }
+

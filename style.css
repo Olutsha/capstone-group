@@ -6,7 +6,68 @@
     background-color: #333;
     color: #fff;
 }
+    /* Target the elements inside the "printingQualityModal" container */
+    #printingQualityModal {
+        /* Set the font color to black */
+        color: black;
+    }
 
+    /* Style the close button ("×") */
+    #closeQualityModal {
+        /* Set the font color to black */
+        color: black;
+        /* You can add other styling here, like font size or hover effects */
+    }
+
+    /* Style the heading */
+    #printingQualityModal h2 {
+        /* Set the font color to black */
+        color: black;
+    }
+
+    /* Style the paragraph for dynamic content */
+    #qualityModalContent {
+        /* Set the font color to black */
+        color: black;
+    }
+
+    /* Style the "NEW" button */
+    #newButtonQuality {
+        /* Set the font color to black */
+        color: black;
+        /* You can add other styling here, like background color or border */
+    }
+    /* Target the elements inside the "printPropertiesModal" container */
+    #printPropertiesModal {
+        /* Set the font color to black */
+        color: black;
+    }
+
+    /* Style the close button ("×") */
+    #closePropertiesModal {
+        /* Set the font color to black */
+        color: black;
+        /* You can add other styling here, like font size or hover effects */
+    }
+
+    /* Style the heading */
+    #printPropertiesModal h2 {
+        /* Set the font color to black */
+        color: black;
+    }
+
+    /* Style the paragraph for dynamic content */
+    #propertiesModalContent {
+        /* Set the font color to black */
+        color: black;
+    }
+
+    /* Style the "NEW" button */
+    #newButtonProperties {
+        /* Set the font color to black */
+        color: black;
+        /* You can add other styling here, like background color or border */
+    }
 /* Button styles */
 .button {
     padding: 10px 20px;

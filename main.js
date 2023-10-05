@@ -14,6 +14,18 @@ var newButtonProperties = document.getElementById("newButtonProperties");
 var closeQualityModal = document.getElementById("closeQualityModal");
 var closePropertiesModal = document.getElementById("closePropertiesModal");
 
+var printQualityButton = document.getElementById("printQualityButton");
+var printQualityText = document.getElementById("printQualityText");
+
+// Add a click event handler to the button
+printQualityButton.addEventListener("click", function() {
+  // Display the additional text when the button is clicked
+  printQualityText.style.display = "block";
+  qualityModalContent.textContent = "This is the new content you added.";
+  qualityModalContent.style.color = "black";
+
+});
+
 // Variables to track whether the "NEW" buttons were clicked once
 var newButtonClickedQuality = false;
 var newButtonClickedProperties = false;
@@ -31,11 +43,12 @@ qualityButton.addEventListener("click", function() {
     // Add content to the quality modal dynamically
     var qualityModalContent = document.getElementById("qualityModalContent");
     qualityModalContent.innerHTML = `
-        Here you can find information about configuring printing quality:
+        Here Is the Information fo the Quality for the printed structure:
         <ul>
-            <li>Set the resolution for high-quality printing.</li>
-            <li>Choose the paper type and size.</li>
-            <li>Adjust color settings for optimal results.</li>
+            <li>Using strong filament type, such as ABS or PETG</li>
+            <li>The wall thickness of the bracket is 2 mm.</li>
+            <li>Using 80% higher infill density </li>
+            <li>Print speed is 30 mm/s.</li>
         </ul>`;
 });
 
@@ -47,9 +60,13 @@ propertiesButton.addEventListener("click", function() {
     propertiesModalContent.innerHTML = `
         Here you can find information about configuring print properties:
         <ul>
-            <li>Set the paper orientation.</li>
-            <li>Choose the number of copies.</li>
-            <li>Adjust page margins and layout.</li>
+            <li>Concrete mix design: The monitor is checking the concrete's viscosity and slump to ensure that it is within the desired range for printing.</li>
+            <li>Print bed temperature: The monitor is checking the print bed temperature to ensure that it is at the desired temperature.</li>
+            <li>Print speed: The monitor is checking the print speed to ensure that it is within the desired range.</li>
+            <li>Layer thickness: The monitor is checking the layer thickness to ensure that it is within the desired range.</li>
+            <li>Infill density: The monitor is checking the infill density to ensure that it is within the desired range.</li>
+            <li>Support structures: The monitor is checking the support structures to ensure that they are properly placed and that they do not interfere with the print.</li>
+
         </ul>`;
 });
 
@@ -223,3 +240,25 @@ if (goToThirdPageButton) {
     goToThirdPageButton.addEventListener('click', goToThirdPage);
 }
 
+// Generating a report
+const fs = require('fs');
+const PDFDocument = require('pdfkit');
+
+// Create a new PDF document
+const doc = new PDFDocument();
+
+// Pipe the PDF document to a writable stream (e.g., a file)
+const stream = fs.createWriteStream('example.pdf');
+doc.pipe(stream);
+
+// Add content to the PDF
+doc.fontSize(16).text('Hello, PDF Generation!', 100, 100);
+doc.text('This is a sample PDF document created with pdfkit.', 100, 150);
+
+// End the PDF document
+doc.end();
+
+// Listen for the 'finish' event to know when the PDF generation is complete
+stream.on('finish', () => {
+  console.log('PDF generation completed.');
+});
