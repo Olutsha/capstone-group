@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D CP MONITOR</title>
+
+    <link rel="stylesheet" href="style.css">  
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.20.0/dist/pdf-lib.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/puppeteer/2.1.1/puppeteer.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <h1>3D PRINTING MONITOR.</h1>
+        <h2>UJ AND ACC WRP</h2>
+        <div class="header">
+            <div class="buttons">
+                <!-- Replace this button with the one below -->
+                <button id="generatePdfButton">Generate PDFs</button>
+            </div>
+        </div>
+    </header>
+    
+    <section class=>
+       
+        <div class="anomalies" >
+             <aside class="aside ">
+                <ul>
+                    <li>Normal>143 <div class="dot normal"></div></li>
+                    <li>Warping>12 <div  class="dot wrapping"></div></li>
+                    <li>Layer-Shift>27 <div  class="dot layer"></div></li>
+                    <li>Over-Extruding>11 <div  class="dot extruding"></div></li>
+                    <p> >193 Images Generated</p>
+                    <p>90 Faulty Images found due to reasons </p>
+                    
+                </ul>
+            </aside>
+            <aside class="gallery">
+              
+                <figure>
+                    <img src="images/img_003.jpeg" alt="Image 1" class="dashboard-image">
+                    <figcaption> <div  class="dot wrapping"></div></figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img_016.jpeg" alt="Image 2" class="dashboard-image">
+                    
+                    <figcaption ><div class="dot normal"></div></figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img_028.jpeg" alt="Image 3" class="dashboard-image">
+                    
+                    <figcaption><div  class="dot layer"></div></figcaption>
+                </figure>
+                <figure>
+                    <img src="images/img_037.jpeg" alt="Image 4" class="dashboard-image">
+                    
+                    <figcaption><div  class="dot extruding"></div></figcaption>
+                </figure>
+            </aside>
+        </div>
+    </section>
+
+    <footer>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+
+   
+</body>
+
+</html>

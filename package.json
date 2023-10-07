@@ -4,15 +4,18 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "server.js"
+    "test": "script.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "jspdf": "^2.5.1",
     "mongoose": "^7.5.3",
     "pdf-lib": "^1.17.1",
-    "pdfkit": "^0.13.0"
+    "pdfkit": "^0.13.0",
+    "puppeteer": "^21.3.8",
+    "puppeteer-pdf": "^1.2.0"
   }
 }
