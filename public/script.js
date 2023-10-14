@@ -1,44 +1,31 @@
-// Wait for the document to be fully loaded
-document.addEventListener("DOMContentLoaded", function () {
-    // Get the button element
-    var generateButton = document.getElementById("generate-pdf");
+  // Function to generate and download the PDF
+  function generatePDF() {
+    const element = document.getElementById('third.html'); // Replace with your HTML element's ID
+    const pdfOptions = {
+      margin: 10,
+      filename: 'generated-pdf.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    };
 
-    // Add a click event listener to the button
-    generateButton.addEventListener("click", function () {
-        // Define the HTML file URLs to fetch
-        var htmlFileUrls = ["http://127.0.0.1:5500/index.html", "http://127.0.0.1:5500/Second.html", "http://127.0.0.1:5500/third.html"];
+    html2pdf().from(element).set(pdfOptions).outputPdf().then(function (pdf) {
+      // Save the PDF as a blob
+      const blob = new Blob([pdf], { type: 'application/pdf' });
 
-        // Create an array to store the generated PDFs
-        var pdfs = [];
+      // Create a temporary link to trigger the download
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = pdfOptions.filename;
+      link.style.display = 'none';
 
-        // Fetch content from each HTML file and generate a PDF
-        Promise.all(
-            htmlFileUrls.map(function (url) {
-                return fetch(url)
-                    .then(response => response.text())
-                    .then(htmlContent => {
-                        // Create a new jsPDF instance
-                        var doc = new jsPDF();
-
-                        // Add content from the HTML file to the PDF
-                        doc.fromHTML(htmlContent, 15, 15);
-
-                        // Store the generated PDF in the array
-                        pdfs.push(doc);
-
-                        return doc;
-                    });
-            })
-        )
-        .then(function () {
-            // Combine and save or display the generated PDFs (e.g., in a single file or separate files)
-            pdfs.forEach(function (pdf, index) {
-                pdf.save("generated-pdf-" + (index + 1) + ".pdf");
-            });
-        })
-        .catch(error => {
-            console.error("Error loading content: " + error);
-        });
+      // Trigger the download and remove the link
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
-});
-console.log(typeof jsPDF);
+  }
+
+  // Attach the generatePDF function to the button click event
+  document.getElementById('generate-pdf').addEventListener('click', generatePDF);
+

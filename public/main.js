@@ -262,3 +262,83 @@ doc.end();
 stream.on('finish', () => {
   console.log('PDF generation completed.');
 });
+
+const imageUrls = [
+    'train/Normal/img_008.jpeg ',
+    'train/Normal/img_006.jpeg ',
+    'train/Normal/img_005.jpeg' ,
+    'train/Normal/img_011.jpeg' ,
+    'train/Normal/img_027.jpeg ',
+    'train/Normal/img_033.jpeg' ,
+    'train/Normal/img_036.jpeg ',
+    'train/Normal/img_057.jpeg ',
+    'train/Normal/img_066.jpeg ',
+    'train/Normal/img_080.jpeg ',
+    'train/Normal/img_059.jpeg ',
+    'train/Normal/img_082.jpeg ',
+    'train/Normal/img_090.jpeg ',
+    'train/Normal/img_115.jpeg ',
+    'train/Normal/img_107.jpeg ',
+    'train/Normal/img_122.jpeg ',
+    'train/Normal/img_123.jpeg ',
+    'train/Normal/img_138.jpeg', 
+    'train/Normal/img_135.jpeg ',
+    'train/Normal/img_140.jpeg', 
+    'train/Normal/img_145.jpeg', 
+    'train/Normal/img_146.jpeg ',
+    'train/Normal/img_147.jpeg' ,
+    'train/Normal/img_149.jpeg' ,
+    'train/Normal/img_155.jpeg',
+                  'train/Layer-shift/img_003.jpeg ',
+    'train/Layer-shift/img_016.jpeg ',
+    'train/Layer-shift/img_028.jpeg', 
+    'train/Layer-shift/img_037.jpeg' ,
+    'train/Layer-shift/img_041.jpeg ',
+    'train/Layer-shift/img_048.jpeg ',
+    'train/Layer-shift/img_043.jpeg ',
+    'train/Layer-shift/img_049.jpeg ',
+    'train/Layer-shift/img_061.jpeg',
+    'train/Layer-shift/img_055.jpeg ',
+    'train/Layer-shift/img_081.jpeg' ,
+    'train/Layer-shift/img_098.jpeg',
+     'train/Layer-shift/img_101.jpeg', 
+     'train/Layer-shift/img_097.jpeg',
+      'train/Layer-shift/img_109.jpeg',
+       'train/Layer-shift/img_116.jpeg ',
+       'train/Layer-shift/img_118.jpeg',
+        'train/Layer-shift/img_128.jpeg ',
+        'train/Layer-shift/img_132.jpeg',
+        'train/Layer-shift/img_136.jpeg',
+      'train/Layer-shift/img_137.jpeg',
+         ' train/Layer-shift/img_154.jpeg ',
+          'train/Layer-shift/img_159.jpeg ',
+         ' train/Layer-shift/img_174.jpeg ',
+         ' train/Layer-shift/img_175.jpeg ',
+          'train/Layer-shift/img_195.jpeg ',
+          'train/Layer-shift/img_197.jpeg ',
+          'train/Layer-shift/img_207.jpeg ',
+         ' train/Layer-shift/img_216.jpeg ',
+         ' train/Layer-shift/img_210.jpeg ',
+         ' train/Layer-shift/img_221.jpeg ',
+          'train/Layer-shift/img_237.jpeg', 
+         ' train/Layer-shift/img_251.jpeg ',
+          'train/Layer-shift/img_244.jpeg'  
+];
+        const shuffleImagesButtonLink = document.getElementById('shuffleImagesButtonLink');
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function setShuffledOrderInURL(array) {
+            const shuffledOrder = shuffleArray([...array]);
+            const shuffledOrderString = shuffledOrder.join(',');
+            shuffleImagesButtonLink.href = `Second.html?shuffledOrder=${shuffledOrderString}`;
+        }
+
+        setShuffledOrderInURL(imageUrls);
+
+        const displayImage = document.getElementById('display_image');

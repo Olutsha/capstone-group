@@ -7,12 +7,6 @@
     <title>3D CP MONITOR</title>
 
     <link rel="stylesheet" href="style.css">
-    <!-- Include jsPDF library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
-<!-- Include your JavaScript code -->
-<script src="script.js"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- <script>CP.js</script> -->
@@ -25,7 +19,10 @@
         <div class="header">
             <div class="buttons">
                 <button id="rawImagesButton" data-set="raw">Raw Images</button>
-                <button id="labeledImagesButton" data-set="labeled">filteresData</button>
+                <button id="labeledImagesButton">Filter Images</button>
+                <button id="goToThirdPageButton">Start Analysis</button>
+                <div id="imageContainer"></div>
+                <div id="categoryCounts"></div>
             </div>
         </div>
     </header>
@@ -266,7 +263,6 @@
         
     </script>
 
-<button id="goToThirdPageButton">Start Analysis</button>
 
 
 
@@ -286,7 +282,7 @@
     </nav>
 </footer>
 
-<script src="more-info.js"></script>
+<script src="main.js"></script>
   <script src="second.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
